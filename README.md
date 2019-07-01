@@ -5,3 +5,4 @@
 * [深入理解文本类型](./go_coding/go_text.md)
 * [深入理解defer](./go_coding/go_defer.md)
 * [实验楼游戏-2048](./go_project/g2048.go)
+* [mysql增删查改实现](./go_project_mysql/mysql_test.go)
