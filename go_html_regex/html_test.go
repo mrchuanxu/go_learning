@@ -6,6 +6,9 @@ import (
 	"io/ioutil"
 	"regexp"
 	"os"
+	"github.com/opesun/goquery"
+	"io"
+	"bytes"
 )
 // 判断错误
 func CheckErr(err error){
@@ -75,25 +78,23 @@ func MakeTxt(strPath string,str string)(bool,error){
 
 
 func TestHtml(t *testing.T){
-	var str string = "http://www.love-fitness.com.cn/2019/06/14/%e5%b0%8f%e4%bc%99%e5%81%a5%e8%ba%ab2%e4%b8%aa%e6%9c%88%e5%90%8e%e5%90%91%e5%a5%b3%e5%8f%8b%e7%82%ab%e8%80%80%e8%85%b9%e8%82%8c%ef%bc%8c%e7%bb%93%e6%9e%9c%e5%b0%b4%e5%b0%ac%e4%ba%86%ef%bc%81/"
-	// resp,err := http.Get(str)
-	// if err != nil{
-	// 	panic(err)
-	// }
-
-	// defer resp.Body.Close()
-
-	// body,errbody := ioutil.ReadAll(resp.Body)
-	// if errbody!=nil{
-	// 	t.Log("wrong body type")
-	// 	panic(errbody)
-	// }
-
-	// databody := string(body)
+	var str string = "http://www.love-fitness.com.cn/2019/07/05/%e7%9c%8b%e5%88%b0%e5%8f%91%e8%83%96%e5%90%8e%e7%9a%84%e5%90%b4%e4%ba%a6%e5%87%a1%ef%bc%8c%e5%90%93%e5%be%97%e6%88%91%e6%89%94%e6%8e%89%e4%ba%86%e6%89%8b%e4%b8%ad%e7%9a%84%e9%b8%a1%e8%85%bf/"
 	str = GetHtmlText(str)
 	str = GetTextComplie(str,`<article[\d\D]*<\/article>`)
-	imgStr := GetTextComplie(str,`<img class[\d\D]*\/>`)
-	t.Log(imgStr)
+	// imgStr := GetTextComplie(str,`<img class[\d\D]*\/>\s`)
+	// t.Log(imgStr)
+	xUrl, err := goquery.ParseUrl("http://www.love-fitness.com.cn/2019/07/05/%e7%9c%8b%e5%88%b0%e5%8f%91%e8%83%96%e5%90%8e%e7%9a%84%e5%90%b4%e4%ba%a6%e5%87%a1%ef%bc%8c%e5%90%93%e5%be%97%e6%88%91%e6%89%94%e6%8e%89%e4%ba%86%e6%89%8b%e4%b8%ad%e7%9a%84%e9%b8%a1%e8%85%bf/")
+	CheckErr(err)
+	imgUrls := xUrl.Find("img").Attrs("src")
+	reg, _ := regexp.Compile(`(\w|\d|_)*.jpg`)
+	for i:=0;i<len(imgUrls);i++{
+		name := reg.FindStringSubmatch(imgUrls[i])[0]
+		resp, _ := http.Get(imgUrls[i])
+		body, _ := ioutil.ReadAll(resp.Body)
+		out, _ := os.Create(name)
+		io.Copy(out, bytes.NewReader(body))
+	}
+	// need to get the http img
 	// strH1Get := GetTextComplie(str,`<h1 class=\"entry-title\">[\d\D]*<\/h1>`)
 	//strhead:= GetArticleHeadName(strH1Get,"\\<[\\S\\s]+?\\>")
 	// fmt.Println(databody)
@@ -101,32 +102,4 @@ func TestHtml(t *testing.T){
 	//strClearHtml := GetArticleHeadName(str,"\\<[\\S\\s]+?\\>")
 	//isMake,err := MakeDir(strhead)
 	// isMake,err = MakeTxt(strhead,strClearHtml)
-	
-
-
-	// if err!=nil&&isMake == false{
-	// 	panic(nil)
-	// }
-	// regx,_ := regexp.Compile(`<article[\d\D]*<\/article>`)
-	// // fmt.Printf(regx.FindString(databody))
-	// regx1,_ := regexp.Compile(`<h1 class=\"entry-title\">[\d\D]*<\/h1>`)
-	
-	// strBody := regx.FindString(databody)
-	// t.Log(regx1.FindString(strBody))
-	
-	// re, _ := regexp.Compile("\\<[\\S\\s]+?\\>")
-	// t.Log(re.ReplaceAllString(regx1.FindString(strBody), ""))
-
-	// err = os.Mkdir(re.ReplaceAllString(regx1.FindString(strBody), ""),os.ModePerm)
-	// file1,err2 := os.Create("test.txt")
-
-	
-	// if err2 != nil{
-	// 	panic(err2)
-	// }
-	
-	// defer file1.Close()
-	// strBody = re.ReplaceAllString(strBody," ")
-	// file1.WriteString(strBody)
-
 }
