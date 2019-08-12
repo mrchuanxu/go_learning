@@ -6,3 +6,7 @@
 * [深入理解defer](./go_coding/go_defer.md)
 * [实验楼游戏-2048](./go_project/g2048.go)
 * [mysql增删查改实现](./go_project_mysql/mysql_test.go)
+
+## go alorigthm
+* [two Sum，map的判断不是==，而是value,ok:=map[]...](./go_alorigthm/two_sum.go)
+

@@ -19,8 +19,10 @@ func OpenSql(sql_name string,user_settings string)(*sql.DB,error){
 }
 // 增删改
 func (sqlDb *SqlOperating)Inse_Dele_UpData(str string){
-	_,err := sqlDb.db.Query(str)
+	excDb,err := sqlDb.db.Prepare(str)
 	CheckErr(err)
+	_,errexec := excDb.Exec(str)
+	CheckErr(errexec)
 }
 
 // 查
