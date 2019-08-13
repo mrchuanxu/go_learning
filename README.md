@@ -11,4 +11,4 @@
 * [two Sum，map的判断不是==，而是value,ok:=map[]...](./go_leetcode/two_sum.go)
 
 ## go 数据结构与算法之美
-* [链表实现CRUD](./go_alorigthm/listgo/golist_test.go)
+* [链表实现CRUD，链表反转，环的检测，链表合并递归完美](./go_alorigthm/listgo/golist_test.go)
