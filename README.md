@@ -8,5 +8,7 @@
 * [mysql增删查改实现](./go_project_mysql/mysql_test.go)
 
 ## go alorigthm
-* [two Sum，map的判断不是==，而是value,ok:=map[]...](./go_alorigthm/two_sum.go)
+* [two Sum，map的判断不是==，而是value,ok:=map[]...](./go_leetcode/two_sum.go)
 
+## go 数据结构与算法之美
+* [链表实现CRUD](./go_alorigthm/listgo/golist_test.go)
