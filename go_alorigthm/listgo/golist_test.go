@@ -169,9 +169,9 @@ func recurMerge(l1 *singleNode,l2 *singleNode)(*singleNode){
 	return tmp
 }
 // 删除倒数第n个节点 k-n+1
-func delbutN(li *singleNode,n int)(*singleNode,bool){
+// func delbutN(li *singleNode,n int)(*singleNode,bool){
 
-}
+// }
 // 求链表的中间结点 快慢指针 两倍 可以找到中间结点 不写了 翻篇
 func TestSingleNode(t *testing.T){
 	l1 := initList()
@@ -185,17 +185,18 @@ func TestSingleNode(t *testing.T){
 	for _,iarr2 := range(arr2){
 		l2 = insertRail(iarr2,l2)
 	}
-	// selCh,_= selectNode(3,li)
+	selCh,_:= selectNode(4,l1)
+	t.Logf("%c %c",selCh,l1.a)
 	// isInsert:= insertList('a',li,-7)
 	// for li.next!=nil{
 	// 	t.Logf("%c",li.a)
 	// 	li = li.next
 	// }
-	l3 := recurMerge(l1,l2)
+	// l3 := recurMerge(l1,l2)
 
-	for l3!=nil{
-		t.Logf("%c",l3.a)
-		l3 = l3.next
-	}
+	// for l3!=nil{
+	// 	t.Logf("%c",l3.a)
+	// 	l3 = l3.next
+	// }
 
 }
