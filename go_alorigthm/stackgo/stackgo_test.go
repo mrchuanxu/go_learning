@@ -5,7 +5,7 @@ import (
 	"errors"
 )
 
-// 栈 一个操作有限的线性表 一个切片
+// 栈 一个操作有限的线性表 一个切片 仅仅是定义一个切片
 type iStack []interface{}
 
 // 长度
