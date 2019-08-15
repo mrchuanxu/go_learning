@@ -14,3 +14,4 @@
 * [链表实现CRUD，链表反转，环的检测，链表合并递归完美](./go_alorigthm/listgo/golist_test.go)
 * [栈的实现，用切片实现，自动扩容](./go_alorigthm/stackgo/stackgo_test.go)
 * [go实现冒泡，插入，选择排序](./go_alorigthm/sortgo/sortgo_test.go)
+* [go实现快排，归并排序 求第K大元素 O(n)的时间复杂度]('./go_alorigthm/quickMergeSort/quickMergeSort_test.go)
