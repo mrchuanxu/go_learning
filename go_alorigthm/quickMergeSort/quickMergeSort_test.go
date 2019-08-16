@@ -3,7 +3,7 @@ package quickMergeSort
 import (
 	"testing"
 	"fmt"
-
+	"math/rand"
 )
 
 // 先写递推公式
@@ -57,11 +57,16 @@ func quickSort(arr []rune,start int,end int){
 	quickSort(arr,start,q-1)
 	quickSort(arr,q+1,end)
 }
+// 	优化快速排序 三点取值
+// func threePickOne(arr[] rune,start int,end int)int{
 
+// }
 // 先排
 func partition(arr []rune,start int,end int)int{
 	// 分区 暂时取最后一个元素
-	pivot := arr[end]
+	// 随机获取一个分区点 这样避免O(n^2)的退化
+	valPivot := rand.Intn(end-start)+start
+	pivot := arr[valPivot]
 	// 交换
 	i := start
 	for j:=start;j<end;j++{
@@ -70,7 +75,7 @@ func partition(arr []rune,start int,end int)int{
 			i++
 		}
 	}
-	arr[i],arr[end] = arr[end],arr[i]
+	arr[i],arr[valPivot] = arr[valPivot],arr[i]
 	return i
 }
 
@@ -95,8 +100,8 @@ func theKNum(arr []rune,start int,end int,k int){
 
 func TestMerge(t *testing.T){
 	arr := []rune{'a','c','g','d','e','f','k'}
-	theKNum(arr,0,len(arr)-1,4)
-	// for _,iarr := range(arr){
-	// 	t.Logf("%c",iarr)
-	// }
+	quickSort(arr,0,len(arr)-1)
+	for _,iarr := range(arr){
+		t.Logf("%c",iarr)
+	}
 }
