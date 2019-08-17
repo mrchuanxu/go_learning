@@ -16,5 +16,6 @@
 * [go实现冒泡，插入，选择排序](./go_alorigthm/sortgo/sortgo_test.go)
 * [go实现快排，归并排序 求第K大元素 O(n)的时间复杂度](./go_alorigthm/quickMergeSort/quickMergeSort_test.go)
 * [桶排序，计数排序，基数排序O(n)](./go_alorigthm/bucketSort/bucketgo_test.go)
-
 * [二分查找以及其变体，十个二分九个错](./go_alorigthm/binarySearch/binarySearch_test.go)
+* [跳表实现我就不实现了，我们需要知道这个性能可以媲美红黑树](https://github.com/wangzheng0822/algo/blob/master/go/17_skiplist/skiplist.go)
+* [LRU缓存算法，实现了一个散列表和双向链表](./go_alorigthm/hashTable/hashTable_test.go)
