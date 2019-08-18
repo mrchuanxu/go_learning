@@ -1,12 +1,11 @@
-package stackgo
+package binaryTree
 
 import (
-	"testing"
 	"errors"
 )
 
 // 栈 一个操作有限的线性表 一个切片 仅仅是定义一个切片
-type iStack []interface{}
+type iStack []*interface{}
 
 // 长度
 func (ista *iStack) Len()int{
@@ -20,7 +19,7 @@ func (ista *iStack) Cap()int{
 
 // push
 func (ista *iStack) push(value interface{})bool{
-	*ista = append(*ista,value) // 解引用获取值 自动扩容 无需考虑大小
+	*ista = append(*ista,&value) // 解引用获取值 自动扩容 无需考虑大小
 	return true
 }
 
@@ -35,23 +34,16 @@ func (ista *iStack) pop()error{
 }
 
 // top
-func (ista *iStack) top()(interface{},error){
+func (ista *iStack) top()(interface{}){
 	if len(*ista) == 0{
-		return nil,errors.New("No thing in Stack")
+		return nil
 	}
-	return 	(*ista)[len(*ista)-1],nil
+	return 	(*ista)[len(*ista)-1]
 }
 
 // isEmpty
 func (ista *iStack) isEmpty()bool{
 	return len(*ista)==0
-}
-
-func TestStack(t *testing.T){
-	ista := new(iStack)
-	err := ista.push(12)
-	a,erro:= ista.top()
-	t.Log(a,erro,err)
 }
 
 
