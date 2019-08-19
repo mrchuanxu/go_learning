@@ -20,3 +20,5 @@
 * [跳表实现我就不实现了，我们需要知道这个性能可以媲美红黑树](https://github.com/wangzheng0822/algo/blob/master/go/17_skiplist/skiplist.go)
 * [LRU缓存算法，实现了一个散列表和双向链表](./go_alorigthm/hashTable/hashTable_test.go)
 * [二叉树中序遍历，前序遍历循环递归实现](./go_alorigthm/binaryTree/binaryTree_test.go)
+* [普通二叉查找树，容易退化，衍生红黑树，红黑树平衡，但是实现难度大，但是性能求稳定，不求实现但求原理的理解以及解决的问题](./go_alorigthm/binaryTreeSearch/binaryTreeSearch_test.go)
+* [堆排序，一个完全二叉树，基于数组，持续堆化，建堆排序，在数组的操作，一般搞下标就好了](./go_alorigthm/heapSort/heapSort_test.go)
