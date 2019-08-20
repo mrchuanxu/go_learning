@@ -1,11 +1,14 @@
 # go_learning
 集合go的编程技巧 多协程编程 分布式 数据库MySQL Linux操作系统讲解
 
-## go 编程细节
+## go 深入理解系列
 * [深入理解文本类型](./go_coding/go_text.md)
 * [深入理解defer](./go_coding/go_defer.md)
 * [实验楼游戏-2048](./go_project/g2048.go)
 * [mysql增删查改实现](./go_project_mysql/mysql_test.go)
+* [go深入理解interface{}]
+* [go深入理解context]
+* [go深入理解channel，锁]()
 
 ## go alorigthm
 * [two Sum，map的判断不是==，而是value,ok:=map[]...](./go_leetcode/two_sum.go)
@@ -23,4 +26,14 @@
 * [普通二叉查找树，容易退化，衍生红黑树，红黑树平衡，但是实现难度大，但是性能求稳定，不求实现但求原理的理解以及解决的问题](./go_alorigthm/binaryTreeSearch/binaryTreeSearch_test.go)
 * [堆排序，一个完全二叉树，基于数组，持续堆化，建堆排序，在数组的操作，一般搞下标就好了](./go_alorigthm/heapSort/heapSort_test.go)
 * [图的广度与深度遍历](./go_alorigthm/graphgo/graph_test.go)
+* [多模式串匹配实现敏感词过滤算法，trie树经典，比较有意思，等工作了再搞](./go_alorigthm/morePattern/morePattern_test.go)
+* [贪心算法 我有贪心策略，此策略必有优解](./go_alorigthm/greedyAlgo/greedy_test.go)
+* [分而治之，了解一下MapReduce的分治思想，遇到大问题，解决成小问题](./)
+* [回溯算法(蝴蝶效应)8皇后与背包问题，要么选要么不选](./go_alorigthm/backDynamic/eightQueens_test.go)
+* [动态规划]()
+
+## go k8s实战
+
+
+
 
