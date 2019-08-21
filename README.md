@@ -34,6 +34,11 @@
 
 ## go k8s实战
 
+## go MySQL系列
+* [mysql是怎么执行语句?](./MySQL/go_connect_transcation.md)
+* [mysql表级锁，行锁以及全局锁](./MySQL/lock.md)
+* [mysql事务隔离？](./MySQL/transaction.md)
+* [唯一索引与普通索引的选择,change buffer!=redo log](./MySQL/chooseIndex.md)
 
 
 
