@@ -99,7 +99,7 @@ func theKNum(arr []rune,start int,end int,k int){
 
 
 func TestMerge(t *testing.T){
-	arr := []rune{'a','c','g','d','e','f','k'}
+	arr := []rune{'a','h','g','d','e','f','k'}
 	quickSort(arr,0,len(arr)-1)
 	for _,iarr := range(arr){
 		t.Logf("%c",iarr)
