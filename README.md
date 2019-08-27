@@ -15,6 +15,7 @@
 * [two Sum，map的判断不是==，而是value,ok:=map[]...](./go_leetcode/two_sum.go)
 * [Three Sum，三个指针 发现快排还是慢](./go_leetcode/three_Sum.go)
 * [Three Sum Closet，发现太慢了！应该有更快的方法，但是空间用的贼少，典型时间换空间](./go_leetcode/threeSumCloset.go)
+* [倒数第n个，k-n+1](./go_leetcode/theNththeend.go)
 
 ## go 数据结构与算法之美
 * [链表实现CRUD，链表反转，环的检测，链表合并递归完美](./go_alorigthm/listgo/golist_test.go)

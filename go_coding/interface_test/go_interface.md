@@ -213,3 +213,4 @@ type eface struct{
 编译器检测，struct是不是满足interface的类型要求。其实，通过了解内存布局哦，可以说，能够进一步分析类型断言等情况的效率问题。当判定一种类型是否满足某个接口时，golang使用类型的方法集和接口所需要的方法集进行匹配，如果类型的方法集完全包含接口的方法集，则可认为该类型满足该接口。
 
 ### 不讲了，剩下自己开发继续使用吧！
+* [参考知乎优秀回答](https://www.zhihu.com/search?type=content&q=golang%20interface%7B%7D)
