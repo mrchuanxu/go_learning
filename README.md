@@ -46,3 +46,4 @@
 * [mysql表级锁，行锁以及全局锁](./MySQL/lock.md)
 * [mysql事务隔离？](./MySQL/transaction.md)
 * [唯一索引与普通索引的选择,change buffer!=redo log](./MySQL/chooseIndex.md)
+* [不好意思，一不小心刷完了45讲，没有写md，只能做一个脑图，来弥补一下缺失](./MySQL/knowledge.md)

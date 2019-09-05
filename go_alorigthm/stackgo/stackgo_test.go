@@ -3,6 +3,7 @@ package stackgo
 import (
 	"testing"
 	"errors"
+	// "reflect"
 )
 
 // 栈 一个操作有限的线性表 一个切片 仅仅是定义一个切片
@@ -48,10 +49,10 @@ func (ista *iStack) isEmpty()bool{
 }
 
 func TestStack(t *testing.T){
-	ista := new(iStack)
-	err := ista.push(12)
-	a,erro:= ista.top()
-	t.Log(a,erro,err)
+	str := "babababab"
+	s := 'b'
+	str = str+string(s)
+	t.Log(str)
 }
 
 
