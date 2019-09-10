@@ -42,6 +42,7 @@
 
 ## go k8s实战
 * [容器，只不过是一种特殊的进程](./kubernetes/processasBegin.md)
+* [容器，Cgroups限制，Namespace隔离](./kubernetes/depatchLimit.md)
 
 ## go MySQL系列
 * [mysql是怎么执行语句?](./MySQL/go_connect_transcation.md)
