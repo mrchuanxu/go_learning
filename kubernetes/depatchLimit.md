@@ -58,5 +58,5 @@ cat /sys/fs/cgroup/cpu/docker/5d5c9f67d/cpu.cfs_quota_us
 20000
 ```
 修复容器中的top指令以及/proc文件系统中的信息 lxcfs<br>
-top是从/prof/stats目录下获取数据，
+top是从/prof/stats目录下获取数据。
 
