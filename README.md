@@ -10,6 +10,7 @@
 * [go深入理解context]
 * [go深入理解channel，锁]()
 * [go 认识IO](./go_lib/goio_test.go)
+* [go相对路径示例]()
 
 ## go alorigthm
 * [two Sum，map的判断不是==，而是value,ok:=map[]...](./go_leetcode/two_sum.go)
@@ -20,6 +21,7 @@
 * [我地D普通人净可以谂到普通算法(x2-x1)*min(y2,y1)，指针最快](./go_leetcode/container_water.go)
 * [MedianSortArray,其实要求O(log(m+n))  归并的思路可以尝试用一下 其实我觉得就是归并排序的变形](./go_leetcode/middienSortArray.go)
 * [nQUeens我不知道为什么这个编译器是不是有问题，整个答案来说，就是求出唯一的，但是就是没想到怎么解决](./go_leetcode/nQueens.go)
+* [rotateNums是array的一个经典题目，冒泡解法最慢，但是空间上是O(1)复杂度，O(k*n的复杂度)](./go_leetcode/roateArray.go)
 
 ## go 数据结构与算法之美
 * [链表实现CRUD，链表反转，环的检测，链表合并递归完美](./go_alorigthm/listgo/golist_test.go)
@@ -50,3 +52,5 @@
 * [mysql事务隔离？](./MySQL/transaction.md)
 * [唯一索引与普通索引的选择,change buffer!=redo log](./MySQL/chooseIndex.md)
 * [不好意思，一不小心刷完了45讲，没有写md，只能做一个脑图，来弥补一下缺失](./MySQL/knowledge.md)
+
+## React 系列
