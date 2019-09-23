@@ -22,7 +22,7 @@
 * [MedianSortArray,其实要求O(log(m+n))  归并的思路可以尝试用一下 其实我觉得就是归并排序的变形](./go_leetcode/middienSortArray.go)
 * [nQUeens我不知道为什么这个编译器是不是有问题，整个答案来说，就是求出唯一的，但是就是没想到怎么解决](./go_leetcode/nQueens.go)
 * [rotateNums是array的一个经典题目，冒泡解法最慢，但是空间上是O(1)复杂度，O(k*n的复杂度)](./go_leetcode/roateArray.go)
-
+* [来自momoso的笔试题，真的让我费劲脑子，写了一天，终于想清楚关系，并用两个递归实现了，瞬间漏出老母亲的笑脸](./go_leetcode/flattentoNested.go)
 ## go 数据结构与算法之美
 * [链表实现CRUD，链表反转，环的检测，链表合并递归完美](./go_alorigthm/listgo/golist_test.go)
 * [栈的实现，用切片实现，自动扩容](./go_alorigthm/stackgo/stackgo_test.go)
