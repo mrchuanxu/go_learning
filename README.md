@@ -13,7 +13,7 @@
 * [go相对路径示例]()
 * [go runtime详解]()
 
-## go alorigthm
+## go leetcode
 * [two Sum，map的判断不是==，而是value,ok:=map[]...](./go_leetcode/two_sum.go)
 * [Three Sum，三个指针 发现快排还是慢](./go_leetcode/three_Sum.go)
 * [Three Sum Closet，发现太慢了！应该有更快的方法，但是空间用的贼少，典型时间换空间](./go_leetcode/threeSumCloset.go)
@@ -23,8 +23,11 @@
 * [MedianSortArray,其实要求O(log(m+n))  归并的思路可以尝试用一下 其实我觉得就是归并排序的变形](./go_leetcode/middienSortArray.go)
 * [nQUeens我不知道为什么这个编译器是不是有问题，整个答案来说，就是求出唯一的，但是就是没想到怎么解决](./go_leetcode/nQueens.go)
 * [rotateNums是array的一个经典题目，冒泡解法最慢，但是空间上是O(1)复杂度，O(k*n的复杂度)](./go_leetcode/roateArray.go)
-* [来自momoso的笔试题，真的让我费劲脑子，写了一天，终于想清楚关系，并用两个递归实现了，瞬间漏出老母亲的笑脸](./go_leetcode/flattentoNested.go)
+* [来自momoso的笔试题，真的让我费劲脑子，写了一天，终于想清楚关系，并用两个递归实现了，瞬间露出老母亲的笑脸](./go_leetcode/flattentoNested.go)
 * [需要了解清楚runtime的用法，调度Gosched,Goexit方法，交替打印数字与字母](./go_leetcode/chanSolve_test.go)
+* [我真的服了，写了一天都没有推倒出来->k(2*numRows-2)](./go_leetcode/zigzag.go)
+## sql 性能优化 leetcode
+* [leftjoin 尽量选择小表来join，这样性能比较优](./MySQL/left_join.sql)
 ## go 数据结构与算法之美
 * [链表实现CRUD，链表反转，环的检测，链表合并递归完美](./go_alorigthm/listgo/golist_test.go)
 * [栈的实现，用切片实现，自动扩容](./go_alorigthm/stackgo/stackgo_test.go)
@@ -56,3 +59,6 @@
 * [不好意思，一不小心刷完了45讲，没有写md，只能做一个脑图，来弥补一下缺失](./MySQL/knowledge.md)
 
 ## React 系列
+
+## 深入浅出redis
+
