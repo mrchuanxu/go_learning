@@ -62,3 +62,7 @@
 
 ## 深入浅出redis
 
+## go—interview
+* [面试题集锦1](./go_interview/bac.go)
+
+
