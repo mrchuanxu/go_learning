@@ -2,18 +2,20 @@
 集合go的编程技巧 多协程编程 分布式 数据库MySQL Linux操作系统讲解
 
 ## go 深入理解系列
+
 * [深入理解文本类型](./go_coding/go_text.md)
 * [深入理解defer](./go_coding/go_defer.md)
 * [实验楼游戏-2048](./go_project/g2048.go)
 * [mysql增删查改实现](./go_project_mysql/mysql_test.go)
 * [go深入理解interface{}](./go_coding/interface_test/go_interface.md)
 * [go深入理解context]
-* [go深入理解channel，锁]()
+* [go深入理解channel，锁]
 * [go 认识IO](./go_lib/goio_test.go)
-* [go相对路径示例]()
-* [go runtime详解]()
+* [go相对路径示例]
+* [goruntime详解]
 
 ## go leetcode
+
 * [two Sum，map的判断不是==，而是value,ok:=map[]...](./go_leetcode/two_sum.go)
 * [Three Sum，三个指针 发现快排还是慢](./go_leetcode/three_Sum.go)
 * [Three Sum Closet，发现太慢了！应该有更快的方法，但是空间用的贼少，典型时间换空间](./go_leetcode/threeSumCloset.go)
@@ -26,9 +28,13 @@
 * [来自momoso的笔试题，真的让我费劲脑子，写了一天，终于想清楚关系，并用两个递归实现了，瞬间露出老母亲的笑脸](./go_leetcode/flattentoNested.go)
 * [需要了解清楚runtime的用法，调度Gosched,Goexit方法，交替打印数字与字母](./go_leetcode/chanSolve_test.go)
 * [我真的服了，写了一天都没有推倒出来->k(2*numRows-2)](./go_leetcode/zigzag.go)
+
 ## sql 性能优化 leetcode
+
 * [leftjoin 尽量选择小表来join，这样性能比较优](./MySQL/left_join.sql)
+
 ## go 数据结构与算法之美
+
 * [链表实现CRUD，链表反转，环的检测，链表合并递归完美](./go_alorigthm/listgo/golist_test.go)
 * [栈的实现，用切片实现，自动扩容](./go_alorigthm/stackgo/stackgo_test.go)
 * [go实现冒泡，插入，选择排序](./go_alorigthm/sortgo/sortgo_test.go)
@@ -45,13 +51,15 @@
 * [贪心算法 我有贪心策略，此策略必有优解](./go_alorigthm/greedyAlgo/greedy_test.go)
 * [分而治之，了解一下MapReduce的分治思想，遇到大问题，解决成小问题](./)
 * [回溯算法(蝴蝶效应)8皇后与背包问题，要么选要么不选](./go_alorigthm/backDynamic/eightQueens_test.go)
-* [动态规划]()
+* [动态规划]
 
 ## go k8s实战
+
 * [容器，只不过是一种特殊的进程](./kubernetes/processasBegin.md)
 * [容器，Cgroups限制，Namespace隔离](./kubernetes/depatchLimit.md)
 
 ## go MySQL系列
+
 * [mysql是怎么执行语句?](./MySQL/go_connect_transcation.md)
 * [mysql表级锁，行锁以及全局锁](./MySQL/lock.md)
 * [mysql事务隔离？](./MySQL/transaction.md)
@@ -63,9 +71,12 @@
 ## 深入浅出redis
 
 ## go—interview
+
 * [面试题集锦1](./go_interview/bac.go)
 
 ### 最近在读编程珠玑
+
 * 最近在读编程珠玑，打算每天做一些题目放上来，持续更新
 
+## go 圣经阅读笔记
 
