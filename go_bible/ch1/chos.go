@@ -15,4 +15,6 @@ func main() {
 		sep = " "
 	}
 	fmt.Println(s)
+	a := 2.51
+	fmt.Println(fmt.Sprintf("%.2f", a))
 }
