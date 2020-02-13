@@ -21,6 +21,19 @@ func TestFprinf(t *testing.T) {
 	advane, token, err := bufio.ScanWords([]byte("hel00o"), true)
 	t.Log(advane, token, err)
 	//io.LimitReader()
+	t.Log(iRe.Read())
+	func() {
+		defer func() {
+			if p := recover(); p != nil {
+				fmt.Printf("hello[%v]", p)
+			}
+		}()
+		errStr := errors.New("is a error")
+		if errStr != nil {
+			panic(errStr)
+		}
+		return
+	}()
 }
 
 // func CountingWriter(w io.Writer) (io.Writer, *int64) {

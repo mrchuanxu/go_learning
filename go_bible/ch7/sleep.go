@@ -1,4 +1,4 @@
-package main
+package ch7
 
 import (
 	"flag"
