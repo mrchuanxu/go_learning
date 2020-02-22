@@ -1,9 +1,8 @@
 package implemet_test
 
 import (
-	"io"
-	"os"
 	"testing"
+	"time"
 )
 
 type IReader interface {
@@ -12,7 +11,11 @@ type IReader interface {
 
 type IWriter interface {
 	Write() string
-	Read() string
+}
+
+type WR interface {
+	IReader
+	IWriter
 }
 
 type IFile struct {
@@ -26,12 +29,15 @@ func (IFile *IFile) Write() string {
 	return "write"
 }
 
-func NewIFile() IReader {
+func NewIFile() WR {
 	return &IFile{}
 }
 
 func TestImp(t *testing.T) {
-	var w io.Writer
-	w = os.Stdout
-	w.Write([]byte("hahah"))
+	// var w io.Writer
+	// w = os.Stdout
+	// w.Write([]byte("hahah"))
+	t1 := time.Unix(1571412817, 0)
+	t2 := t1.AddDate(0, 0, 90).AddDate(0, 0, 30).AddDate(0, 0, 62)
+	t.Log(t2)
 }

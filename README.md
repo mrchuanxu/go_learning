@@ -79,5 +79,6 @@
 * 最近在读编程珠玑，打算每天做一些题目放上来，持续更新
 * [第二章—二分-标识](./go_programpearls/ch1/ex1_test.go)
 * [第三章-数据决定程序结构](先设计结构，根据结构编码会是一个更好的体验，think twice,code once)
-## go 圣经阅读笔记
 
+## git-command 3 pre day
+* [每天三条git命令](./git_operation/git_command.md)
