@@ -13,6 +13,7 @@
 * [go 认识IO](./go_lib/goio_test.go)
 * [go相对路径示例]
 * [goruntime详解]
+* [go并发编程，一个简易聊天室](./go_bible/ch8/ch8chat/chat.go)
 
 ## go leetcode
 
