@@ -3,6 +3,7 @@ package transconnect
 import (
 	"fmt"
 	"net/http"
+	"strconv"
 	"testing"
 )
 
@@ -72,15 +73,46 @@ func (db database) price(w http.ResponseWriter, req *http.Request) {
 
 // TestTransHttp 测试trans的http服务
 func TestTransHttp(t *testing.T) {
-	db := database{"shoes": 50, "socks": 5}
-	mux := http.NewServeMux()
-	mux.Handle("/list", http.HandlerFunc(db.list))
-	mux.Handle("/price", http.HandlerFunc(db.price))
-	t.Fatal(http.ListenAndServe("localhost:8000", mux))
+	// db := database{"shoes": 50, "socks": 5}
+	// mux := http.NewServeMux()
+	// mux.Handle("/list", http.HandlerFunc(db.list))
+	// mux.Handle("/price", http.HandlerFunc(db.price))
+	// t.Fatal(http.ListenAndServe("localhost:8000", mux))
 	// nil 使用DefaultServeMux作为服务器
 	// db := database{"shoes": 50, "socks": 5}
 	// http.HandleFunc("/list", db.list)
 	// http.HandleFunc("/price", db.price)
 	// log.Fatal(http.ListenAndServe("localhost:8000", nil))
 
+	// nums := []int{1, 2, 3, 4, 5}
+	// for i := 0; i < len(nums); i++ {
+	// 	arr := append(append([]int{}, nums[:i]...), nums[i+1:]...)
+	// 	t.Log(arr)
+	// }
+	t.Log(getPermutation(3, 3))
+}
+func getPermutation(n int, k int) string {
+	ans := make([][]int, 0)
+	nums := make([]int, n)
+	for i := range nums {
+		nums[i] = i + 1
+	}
+	permutateSolve(nums, []int{}, k, &ans)
+	strRes := ""
+	for v := range ans[k-1] {
+		strRes += strconv.Itoa(ans[k-1][v])
+	}
+	return strRes
+}
+
+func permutateSolve(nums, prev []int, k int, ans *[][]int) {
+	if len(nums) == 0 {
+		*ans = append(*ans, append([]int{}, prev...))
+		return
+	}
+
+	for i := 0; i < k; i++ {
+		permutateSolve(append(append([]int{}, nums[:i]...), nums[i+1:]...),
+			append(prev, nums[i]), k, ans)
+	}
 }

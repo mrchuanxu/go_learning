@@ -121,6 +121,22 @@ func reverseList(li *singleNode, cur *singleNode) *singleNode {
 	return pNew
 }
 
+func reveser(head *singleNode) (reverse *singleNode) {
+	if head == nil {
+		return nil
+	}
+	sao := new(singleNode)
+	tmp := new(singleNode)
+	for head != nil {
+		tmp = head.next
+		head.next = sao
+		sao = head
+		head = tmp
+	}
+	reverse = sao
+	return
+}
+
 // 单链表递归
 func reverseListRecur(li *singleNode, revNode *singleNode) *singleNode {
 	if li == nil {
@@ -214,10 +230,12 @@ func TestSingleNode(t *testing.T) {
 	for _, iarr := range arr {
 		l1 = insertRail(iarr, l1)
 	}
+	l1 = reveser(l1)
+
 	// for _, iarr2 := range arr2 {
 	// 	l2 = insertRail(iarr2, l2)
 	// }
-	l1 = reverseKGroup(l1, 2)
+	// l1 = reverseKGroup(l1, 2)
 	for l1 != nil {
 		t.Logf("%c", l1.a)
 		l1 = l1.next

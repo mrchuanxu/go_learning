@@ -4,6 +4,7 @@ go 1.13
 
 require (
 	github.com/go-sql-driver/mysql v1.5.0
+	github.com/gogo/protobuf v1.3.1 // indirect
 	github.com/mattn/go-runewidth v0.0.8 // indirect
 	github.com/nsf/termbox-go v0.0.0-20200204031403-4d2b513ad8be
 	github.com/opesun/goquery v0.0.0-20160908163916-0d77e43213cd
