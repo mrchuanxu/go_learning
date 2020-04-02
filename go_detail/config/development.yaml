@@ -1,0 +1,6 @@
+# 此文件仅用于config包的单元测试
+   server:
+     port: 8911
+   database:
+     provider: "mysql"
+     hhh: "uuuu"

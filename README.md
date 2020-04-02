@@ -1,7 +1,7 @@
 # go_learning
 集合go的编程技巧 多协程编程 分布式 数据库MySQL Linux操作系统讲解
 
-## go 深入理解系列
+## go 深入理解系列(多看点源码，看看人家的设计)
 
 * [深入理解文本类型](./go_coding/go_text.md)
 * [深入理解defer](./go_coding/go_defer.md)
@@ -79,4 +79,7 @@
 
 * 最近在读编程珠玑，打算每天做一些题目放上来，持续更新
 * [第二章—二分-标识](./go_programpearls/ch1/ex1_test.go)
-* [第三章-数据决定程序结构](先设计结构，根据结构编码会是一个更好的体验，think twice,code once)
+
+### go-高级编程
+[string\slice\array](./go_highprogram/ch1/str_test.gp)
+

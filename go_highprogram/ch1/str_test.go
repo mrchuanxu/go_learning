@@ -7,6 +7,7 @@ import (
 	"io"
 	"os"
 	"reflect"
+	"sync"
 	"testing"
 	"time"
 	"unsafe"
@@ -23,33 +24,12 @@ type IStringHeader struct {
 
 //  切片 go语言的特色
 type SliceHeader struct {
-	Data uintptr
+	Data uintptr // 指向数据地址的指针
 	Len  int
 	Cap  int
 }
 
 func TestStr(t *testing.T) {
-	// str := "helllo"
-	// str1 := str
-	// strings.ToUpper(str)
-	// t.Log(str1)
-	// s1 := "helloworld"[:5]
-	// ls1 := (*reflect.StringHeader)(unsafe.Pointer(&s1)).Len
-	// t.Log(ls1)
-	// i := 2 | 3
-	// t.Log(i)
-	// a := []byte{'1', '2', '3', '4'}
-	// p := byteToString(a)
-	// a = a[:copy(a, a[1:])] // a是已经被改变了
-	// t.Log(a)
-	// t.Log(p)
-	// a = append(a[:2], append([]byte{'1', '2', '3', '4'}, 'a', 'b', 'c')...)
-
-	// t.Log(a)
-	// copy(a[2:], a[1:])
-	// a[1] = 'd'
-	// t.Log(a)
-
 	s1 := "bbz"
 	s2 := "adc"
 	if s1 > s2 {
@@ -57,6 +37,23 @@ func TestStr(t *testing.T) {
 	}
 	// b1 := []byte{'h', 'h'}
 	fmt.Fprintln(&upwriter{os.Stdout}, "hi world")
+
+	// 修改切片
+	a := []int{1, 2, 3, 4, 4, 5, 6}
+	y := a[1:3:5]
+	t.Log(cap(y))
+	t.Log(len(y))
+	t.Log(y[1], y[0])
+	y[1] = 8
+	t.Log(a)
+	a = append([]int{-3, -2, -1}, a...)
+	t.Log(a)
+	copy(a[0:], a[1:])
+	t.Log(a)
+	t.Log(cap(a))
+	a = append(a[:0], a[2:]...)
+	t.Log(a)
+	t.Log(cap(a))
 }
 
 type upwriter struct {
@@ -98,5 +95,64 @@ func handle(ctx context.Context, duration time.Duration) {
 		fmt.Println("handle", ctx.Err())
 	case <-time.After(duration):
 		fmt.Println("process request with", duration)
+	}
+}
+
+func TestSlice(t *testing.T) {
+	sl := []string{
+		"a",
+		"b",
+		"c",
+	}
+
+	fmt.Printf("%v, %p\n", sl, sl)
+	changeSlice(sl)
+	fmt.Printf("%v, %p\n", sl, sl)
+	changeSlice1(sl)
+	fmt.Printf("%v, %p\n", sl, &sl)
+}
+
+func changeSlice(sl []string) {
+	fmt.Printf("%v, %p\n", sl, sl)
+	sl[0] = "aa"
+
+	//sl = append(sl, "d")
+	fmt.Printf("%v, %p\n", sl, sl)
+}
+
+func changeSlice1(sl []string) {
+	fmt.Printf("%v, %p\n", sl, &sl)
+}
+
+func TestMap(t *testing.T) {
+	aMap := make(map[string]int)
+	t.Logf("%p", aMap)
+}
+
+func TestInt(t *testing.T) {
+	bigInt := ^uint(0)
+	t.Log(bigInt)
+	t.Log(int(bigInt >> 1))
+}
+
+func TestMutile(t *testing.T) {
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
+	var wg sync.WaitGroup
+	wg.Add(2)
+	for i := 0; i < 2; i++ {
+		go work(ctx, &wg)
+	}
+	time.Sleep(time.Second)
+	cancel()
+	wg.Wait()
+}
+
+func work(ctx context.Context, wg *sync.WaitGroup) {
+	defer wg.Done()
+	select {
+	case <-ctx.Done():
+		ctx.Err()
+	default:
+		fmt.Println("Hello lijia!")
 	}
 }
