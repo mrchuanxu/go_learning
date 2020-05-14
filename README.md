@@ -1,5 +1,5 @@
 # go_learning
-集合go的编程技巧 多协程编程 分布式 数据库MySQL Linux操作系统讲解
+集合go的编程技巧 分布式 数据库MySQL Linux操作系统讲解 设计模式 架构思想总结 算法思想总结 还是持续搞起来，让这个项目更加丰满
 
 ## go 深入理解系列(多看点源码，看看人家的设计)
 
@@ -52,8 +52,9 @@
 * [贪心算法 我有贪心策略，此策略必有优解](./go_alorigthm/greedyAlgo/greedy_test.go)
 * [分而治之，了解一下MapReduce的分治思想，遇到大问题，解决成小问题](./)
 * [回溯算法(蝴蝶效应)8皇后与背包问题，要么选要么不选](./go_alorigthm/backDynamic/eightQueens_test.go)
-* [动态规划]
 
+#### 基础篇
+* [循环队列实现](./go_date_program/20200514/queue_test.go)
 ## go k8s实战
 
 * [容器，只不过是一种特殊的进程](./kubernetes/processasBegin.md)
@@ -83,3 +84,5 @@
 ### go-高级编程
 [string\slice\array](./go_highprogram/ch1/str_test.gp)
 
+### go-设计模式
+[经典面向接口而非实现，program_to_interface_not_to_implement]()
