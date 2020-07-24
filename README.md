@@ -86,3 +86,6 @@
 
 ### go-设计模式
 [经典面向接口而非实现，program_to_interface_not_to_implement]()
+
+### 深入理解计算机系统
+[计算机系统漫游笔记](./CSAPP/ch1.md)
