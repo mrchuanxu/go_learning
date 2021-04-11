@@ -86,8 +86,11 @@
 [string\slice\array](./go_highprogram/ch1/str_test.gp)
 
 ### go-设计模式
-[经典面向接口而非实现，program_to_interface_not_to_implement]()
+[多用组合少用继承](./go_design_pattern/lkp_test.go)
 
 ### 深入理解计算机系统
 [计算机系统漫游笔记](./CSAPP/ch1.md)
 [程序结构和执行-信息的表示和处理](./CSAPP/ch2.md)
+
+### 为什么系列
+[为什么会64位系统调用不需要陷入内核态？]()
