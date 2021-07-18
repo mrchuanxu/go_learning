@@ -46,3 +46,7 @@ func TestInter(t *testing.T) {
 	r.Run()
 	r.Say()
 }
+
+func Test_Println(t *testing.T){
+	fmt.Println("fuck?")
+}
