@@ -4,6 +4,7 @@ import "sync"
 
 // 考虑实例的线程安全的问题
 // 单例模式能解决
+// 避免资源访问冲突、表示业务概念上的全局唯一类
 
 type singleTon struct{}
 
