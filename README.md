@@ -88,6 +88,7 @@
 ### go-设计模式
 [多用组合少用继承](./go_design_pattern/lkp_test.go)
 [DDD充血模型开发一个虚拟钱包](./go_design_pattern/wallet_test.go)
+[单例模式](./go_design_pattern/singleholder.go)
 
 ### 深入理解计算机系统
 [计算机系统漫游笔记](./CSAPP/ch1.md)
