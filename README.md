@@ -92,6 +92,8 @@
 [工厂模式](./go_design_pattern/factory.go)
 [建造者模式](./go_design_pattern/builder_test.go)
 [代理模式](./go_design_pattern/proxy_test.go)
+[桥接模式](./go_design_pattern/bridge_test.go)
+
 ### 深入理解计算机系统
 [计算机系统漫游笔记](./CSAPP/ch1.md)
 [程序结构和执行-信息的表示和处理](./CSAPP/ch2.md)
