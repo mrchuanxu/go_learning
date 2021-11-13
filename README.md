@@ -86,14 +86,14 @@
 [string\slice\array](./go_highprogram/ch1/str_test.gp)
 
 ### go-设计模式
-[多用组合少用继承](./go_design_pattern/lkp_test.go)
-[DDD充血模型开发一个虚拟钱包](./go_design_pattern/wallet_test.go)
-[单例模式](./go_design_pattern/singleholder.go)
-[工厂模式](./go_design_pattern/factory.go)
-[建造者模式](./go_design_pattern/builder_test.go)
-[代理模式](./go_design_pattern/proxy_test.go)
-[桥接模式](./go_design_pattern/bridge_test.go)
-[观察者模式](./go_design_pattern/observer_test.go)
+* [多用组合少用继承](./go_design_pattern/lkp_test.go)
+* [DDD充血模型开发一个虚拟钱包](./go_design_pattern/wallet_test.go)
+* [单例模式](./go_design_pattern/singleholder.go)
+* [工厂模式](./go_design_pattern/factory.go)
+* [建造者模式](./go_design_pattern/builder_test.go)
+* [代理模式](./go_design_pattern/proxy_test.go)
+* [桥接模式](./go_design_pattern/bridge_test.go)
+* [观察者模式](./go_design_pattern/observer_test.go)
 
 ### 深入理解计算机系统
 [计算机系统漫游笔记](./CSAPP/ch1.md)
