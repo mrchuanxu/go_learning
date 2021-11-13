@@ -93,6 +93,7 @@
 [建造者模式](./go_design_pattern/builder_test.go)
 [代理模式](./go_design_pattern/proxy_test.go)
 [桥接模式](./go_design_pattern/bridge_test.go)
+[观察者模式](./go_design_pattern/observer_test.go)
 
 ### 深入理解计算机系统
 [计算机系统漫游笔记](./CSAPP/ch1.md)
