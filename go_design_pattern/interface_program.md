@@ -51,4 +51,45 @@ type CustomerBelong struct{
 3. 职责越单一越好？
 没有银弹的设计，只有适合当前变化的设计。 如果一个类拆分的过于小，维护性就会成问题。因为过小的类，在这个代码中越多，整个代码就会变得很松散，没有了高内聚的味道了。
 
+#### OCP(Open Closed Principle) 开闭原则
+software entities (modules, classes, functions, etc.) should be open for extension , but closed for modification. 添加一个新的功能应该是，在已有代码基础上扩展代码（新增模块、类、方法等），而非修改已有代码（修改模块、类、方法等。<br>
 
+1. 如何理解？
+开闭原则可以理解为代码的扩展性是否得到满足，是判断一段代码是否易扩展准则。也就是在应对未来的需求的变化的的时候，是否能够做到对扩展开放，对修改关闭。提到扩展，顺便提一下，在设计代码的时候，应该具有偏向顶层的抽象思维，时刻保持着扩展意识、抽象意识、封装意识。<br>
+
+2. 如何设计？
+举个具体的例子，假设我们需要设计一个Kafka发送异步消息。那么我们在设计接口的时候，需要将其设计成与kafka无关的异步消息接口，使其通过依赖注入的方式来调用，方便后续如果需就能替换成rocketMQ发异步消息。<br>
+```golang
+
+type MsgQueue interface{
+   SendNotify(string)error
+   ...
+}
+
+type KafkaQueue struct{
+}
+
+func (k *KafkaQueue) SendNotify(string)error{
+   // do notify
+   return nil
+}
+
+type RockMQ struct{}
+func (r *RockMQ) SendNotify(string)error{
+   // do notify
+   return nil
+}
+
+// 设计异步发送消息
+func AsyncSend(m MsgQueue)error{
+   m.SendNotify("hello,trans")
+   return nil
+}
+
+func main(){
+   AsyncSend(&KafkaQueue{})
+}
+```
+
+3. 如何灵活使用？
+其实上述举的例子只是开闭原则的冰山一角，开闭原则主要的一个理念是留好扩展点，适应业务变化，毕竟唯一不变的只有变化本身。开闭原则也并不是完全避免对代码的修改，其实可以对代码适当的修改，只要不会引起测试用例的变化，或者调用方的变化，那么这种修改就是适当的，它本身也是一种扩展。提高代码扩展性的方式有很多，例如多态、依赖注入、基于接口而非实现编程还有大部分的设计模式，装饰，策略，模版，职责链，状态等。
