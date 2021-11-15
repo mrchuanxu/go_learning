@@ -28,3 +28,5 @@ func (r *reader) ReadAll(file []string) string {
 func Test_template(t *testing.T) {
 	IOTemplate("txt", &reader{})
 }
+
+// callback 回调 A调用B B反过来调用A
