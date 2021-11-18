@@ -30,3 +30,9 @@ func Test_template(t *testing.T) {
 }
 
 // callback 回调 A调用B B反过来调用A
+func call(a,b string,callback func(a string)error)error{
+	if a == ""{
+		return nil
+	}
+	return callback(a)
+}
