@@ -95,6 +95,7 @@
 * [桥接模式](./go_design_pattern/bridge_test.go)
 * [观察者模式](./go_design_pattern/observer_test.go)
 * [模版模式](./go_design_pattern/template_test.go)
+* [策略模式](./go_design_pattern/strategy_test.go)
 
 ### 深入理解计算机系统
 [计算机系统漫游笔记](./CSAPP/ch1.md)
