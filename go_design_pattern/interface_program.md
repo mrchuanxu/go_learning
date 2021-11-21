@@ -143,3 +143,113 @@ func Test_LSP(t *testing.T) {
 Clients should not be forced to depend upon interfaces that they do not use。 调用者/使用者不应该被强迫依赖它不需要的接口。<br>
 
 1. 如何理解？
+接口可以理解为一组接口的集合，它属于一组具有具体属性的接口。在设计微服务或者类库接口的时候，如果部分接口只被部分调用者使用，那么就将这部分接口隔离出来，单独给对应的调用者使用，而不是强迫其他调用者也依赖这部分不会被用到的接口。即接口提供方也要保证一组接口提供的职责也是单一的。<br>
+
+2. 太抽象了，举个例子？
+假设我们需要设计三个通过不同内部网关不同的连接信息客户端连接，分别为`extapi`、`extapi-inner`、`extapi-vip`，每个客户端对应一系列配置信息，例如接口地址，端口号，访问超时时间等等。<br>
+
+```golang
+type ExtAPIClient struct{
+   Address string
+   Timeout int64
+   MaxTotal int64
+   Port int64
+}
+
+func (e *ExtAPIClient) POST(ctx context.Context,params string)string{
+   return ""
+}
+
+type ExtAPIInnerClient struct{
+   Address string
+   Timeout int64
+   MaxTotal int64
+   Port int64
+}
+
+func (e *ExtAPIInnerClient) POST(ctx context.Context,params string)string{
+   return ""
+}
+
+type ExtAPIVIPClient struct{
+   Address string
+   Timeout int64
+   MaxTotal int64
+   Port int64
+}
+
+func (e *ExtAPIVIPClient) POST(ctx context.Context,params string)string{
+   return ""
+}
+```
+假设我们现在因为`extapi`、`extapi-inner`请求量太大，击崩服务器，需要添加新功能，仅对`extapi`、`extapi-inner`控制并发请求量，但是我们并不需要对`extapi-vip` 有任何改动。因此我们设计了一个统一的控制数量的接口，专门对`extapi`、`extapi-inner`进行并发请求进行控制
+```golang
+type ExtAPIClient struct{
+   Address string
+   Timeout int64
+   MaxTotal int64
+   Port int64
+   ReqNum int64
+}
+
+func (e *ExtAPIClient) POST(ctx context.Context,params string)string{
+   return ""
+}
+
+func (e *ExtAPIClient) GetTotalReq()int64{
+   return e.ReqNum
+}
+
+type ExtAPIInnerClient struct{
+   Address string
+   Timeout int64
+   MaxTotal int64
+   Port int64
+   ReqNum int64
+}
+
+func (e *ExtAPIInnerClient) POST(ctx context.Context,params string)string{
+   return ""
+}
+
+func (e *ExtAPIInnerClient) GetTotalReq()int64{
+   return e.ReqNum
+}
+
+type ReqController struct{
+   Num int64
+}
+
+func (r *ReqController)control(e1 *ExtAPIInnerClient,e2 *ExtAPIClient)bool{
+   if e1.ReqNum >  r.Num{
+      return false
+   }
+   ...
+}
+```
+那我们后面要对`extapi-vip` 添加新功能，需要对这个接口进行流量监控，那么我们只需要对该客户端进行添加适当的方法即可。如此，我们对接口进行了隔离，使代码更加灵活、易扩展、易复用。<br>
+
+3. 那我设计一个大而全的`Client`，有什么缺点吗？
+实际上，如此就会增加一些无用功，有些接口并不需要的操作，也不需要提供给调用者，调用者也可能会误用。而隔离了接口设计，相对的改动也会少。<br>
+
+#### DIP(Dependency Inversion Principle) 依赖反转原则
+High-level modules shouldn’t depend on low-level modules. Both modules should depend on abstractions. In addition, abstractions shouldn’t depend on details. Details depend on abstractions. 高层模块（high-level modules）不要依赖低层模块（low-level）。高层模块和低层模块应该通过抽象（abstractions）来互相依赖。除此之外，抽象（abstractions）不要依赖具体实现细节（details），具体实现细节（details）依赖抽象（abstractions）。<br>
+
+1. 如何理解？
+在一个调用链上，调用者属于高层，被调用者属于低层，两层的调用都应该通过抽象来相互依赖，最稳定的也就是是抽象出来的接口。例如我们现在的DDD的设计。<br>
+
+2. 举个例子？
+```golang
+// 被调用者
+type BeCaller interface{
+   Hello(string)string
+}
+
+// 依赖于抽象 再注入抽象
+// 依赖注入是一个标价 25 美元，实际上只值 5 美分的概念
+func Caller(b BeCaller)string{
+   return b.Hello("bye")
+}
+```
+3. 什么时候再更新具体的设计模式？
+看心情。

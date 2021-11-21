@@ -86,6 +86,7 @@
 [string\slice\array](./go_highprogram/ch1/str_test.gp)
 
 ### go-设计模式
+* [设计原则总结](./go_design_pattern/interface_program.md)
 * [多用组合少用继承](./go_design_pattern/lkp_test.go)
 * [DDD充血模型开发一个虚拟钱包](./go_design_pattern/wallet_test.go)
 * [单例模式](./go_design_pattern/singleholder.go)
