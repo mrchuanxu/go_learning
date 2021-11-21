@@ -100,11 +100,46 @@ Functions that use pointers of references to base classes must be able to use ob
 
 1. 如何理解？
 Design By contract。 函数行为应该遵循父类定义的行为协议，对输入输出异常都应该与父类保持一致，使用父类单元测试的用例应该对子类是保持有效且正常的。<br>
-由于go语言没有继承特性，使用组合的例子来说明里氏替换员
+由于go语言没有继承特性，使用组合的例子来说明里氏替换原则
 ```golang
 // 假设我们需要设计考勤的类
-// 考虑到考勤应该有 打卡，实时考勤轨迹，获取打卡信息
-type Attendance interface{
+// 考虑到考勤打卡功能
+type Attendance interface {
+	Pinch(emplyee string, t time.Time) bool
+}
 
+type AttendanceImpl struct {
+	pinchTime time.Time
+}
+// 父类方法
+func (ai *AttendanceImpl) Pinch(emplyee string, t time.Time) bool {
+	// 简单的规则
+	if emplyee != "" && t.Before(time.Now()) {
+		return true
+	}
+	return false
+}
+
+// 现假设考勤打卡需要增加时间判断，超过特定的时间就不能打卡
+// 重写方法
+func (ai *AttendanceImpl) Pinch(emplyee string, t time.Time) bool {
+	// 简单的规则
+	if emplyee != "" && ai.pinchTime.After(t) {
+		return true
+	}
+	return false
+}
+
+func attendancePinch(a Attendance) bool {
+	return a.Pinch("vito", time.Now())
+}
+
+func Test_LSP(t *testing.T) {
+	attendancePinch(&AttendanceImpl{})
 }
 ```
+
+#### ISP(Interface Segregation Principle) 接口隔离原则
+Clients should not be forced to depend upon interfaces that they do not use。 调用者/使用者不应该被强迫依赖它不需要的接口。<br>
+
+1. 如何理解？
