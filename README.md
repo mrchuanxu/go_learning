@@ -98,6 +98,14 @@
 * [模版模式](./go_design_pattern/template_test.go)
 * [策略模式](./go_design_pattern/strategy_test.go)
 * [职责链模式](./go_design_pattern/chain_response_test.go)
+* [状态模式](./go_design_pattern/status_test.go)
+* [迭代器模式](./go_design_pattern/iterator_test.go)
+* [访问者模式:将对象与操作解耦，允许一组对象对应多组操作]
+* [备忘录模式](./go_design_pattern/memento_test.go)
+* [命令模式](./go_design_pattern/command_test.go)
+* [解释器模式](./go_design_pattern/interpreter_test.go)
+
+* [总结-23种设计模式](./go_design_pattern/23_design_pattern.md)
 
 ### 深入理解计算机系统
 [计算机系统漫游笔记](./CSAPP/ch1.md)
