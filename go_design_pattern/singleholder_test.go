@@ -32,14 +32,8 @@ func GetInstance() *singleTon {
 // 设计的初衷是为了避免打印的时候出现日志文字覆盖
 
 // 一个logger打印日志就出来了
-func logger(ctx context.Context, formatter string, args ...interface{}) {
-	// trace ctx
-	fd, err := os.OpenFile("log.txt", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0666)
-	if err != nil {
-		panic(err)
-	}
-	defer fd.Close()
-	_, err = fd.WriteString(fmt.Sprintf(formatter, args...))
+func logger(fd *os.File, formatter string, args ...interface{}) {
+	_, err := fd.WriteString(fmt.Sprintf(formatter, args...))
 	if err != nil {
 		panic(err)
 	}
