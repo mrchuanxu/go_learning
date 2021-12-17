@@ -16,6 +16,42 @@
 ### 单例模式
 一个类只允许创建一个对象或者实例，那这个类就是一个单例类。为什么要使用单例模式？ 因为单例模式能处理资源访问冲突，并且保持全局唯一，无论是线程上，进程上还是分布式上。 单例的实现方式？
 #### 如何用go实现一个日志打印功能
+先来看看一个日志打印功能
+```go
+// 一个logger打印日志就出来了
+func logger(ctx context.Context, formatter string, args ...interface{}) {
+	// trace ctx
+	fd, err := os.OpenFile("log.txt", os.O_CREATE|os.O_WRONLY, 0666)
+	if err != nil {
+		panic(err)
+	}
+	defer fd.Close()
+	_, err = fd.WriteString(fmt.Sprintf(formatter, args...))
+	if err != nil {
+		panic(err)
+	}
+	fd.Sync()
+}
+```
+这段代码有什么问题呢？ 假设多协程一起执行写日志，就会导致覆盖写。最后输出的只有一行。那如何避免覆盖写？
+```go
+// 一个logger打印日志就出来了
+func logger(ctx context.Context, formatter string, args ...interface{}) {
+// trace ctx
+    fd, err := os.OpenFile("log.txt", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0666)
+    if err != nil {
+        panic(err)
+    }
+    defer fd.Close()
+    _, err = fd.WriteString(fmt.Sprintf(formatter, args...))
+    if err != nil {
+        panic(err)
+    }
+    fd.Sync()
+}
+```
+添加`os.O_APPEND`就不会覆盖写的情况。为什么呢？这是在系统级别上控制，当打开文件设置了追加写，那么内核就会共享文件写入游标，保证内容不会被覆盖。<br>
+
 
 
 #### 适用场景
