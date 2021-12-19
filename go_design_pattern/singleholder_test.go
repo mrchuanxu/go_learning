@@ -1,7 +1,6 @@
 package go_design_pattern_test
 
 import (
-	"context"
 	"fmt"
 	"os"
 	"sync"
@@ -43,12 +42,13 @@ func logger(fd *os.File, formatter string, args ...interface{}) {
 func TestLogger(t *testing.T) {
 	i := 0
 	var wg sync.WaitGroup
+	fd, _ := os.OpenFile("log.txt", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0666)
 	for i < 1000 {
 		i++
 		wg.Add(1)
 		go func(k int) {
 			defer wg.Done()
-			logger(context.Background(), "hello %v\n", k)
+			logger(fd, "hello %v\n", k)
 		}(i)
 	}
 	wg.Wait()
