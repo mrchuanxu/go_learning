@@ -15,6 +15,7 @@
 * [goruntime详解]
 * [go并发编程，一个简易聊天室](./go_bible/ch8/ch8chat/chat.go)
 * [net/http源码研究以及深入实践](./gosource/net_http)
+* [SetFinalizer使用](./go_coding/SetFinalizer_test.go)
 
 ## go leetcode
 
